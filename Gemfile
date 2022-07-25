@@ -9,7 +9,7 @@ gem 'rack-attack'
 gem 'rack-cors'
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0'
-gem "cpf_cnpj"
+gem "validators"
 
 gem 'rspec'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
