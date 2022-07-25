@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: João Cardoso
+  cpf: 00000000000
+  birth_date: 1957-07-24
+  tel: 12965482654
+  genere: M
+  payment_method: Boleto
+
+two:
+  name: Maria Jesus
+  cpf: 00000000000
+  birth_date: 2001-06-25
+  tel: 12935641587
+  genere: F
+  payment_method: Cartão
