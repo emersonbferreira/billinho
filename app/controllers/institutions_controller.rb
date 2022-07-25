@@ -48,4 +48,10 @@ class InstitutionsController < ApplicationController
     def institution_params
       params.require(:institution).permit(:name, :cnpj, :kind)
     end
+
+    # Verify CNPJ params.
+    def check_cpf
+    
+    end
+    
 end
