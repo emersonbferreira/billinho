@@ -16,7 +16,7 @@ class InstitutionsController < ApplicationController
   # POST /institutions
   def create
     @institution = Institution.new(institution_params)
-
+    @institution.kind = @institution.kind.capitalize
     if @institution.save
       render json: @institution, status: :created, location: @institution
     else
@@ -46,12 +46,6 @@ class InstitutionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def institution_params
-      params.require(:institution).permit(:name, :cnpj, :kind)
+      params.permit(:name, :cnpj, :kind)
     end
-
-    # Verify CNPJ params.
-    def check_cpf
-    
-    end
-    
 end

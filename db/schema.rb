@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220725041938) do
+ActiveRecord::Schema.define(version: 20220725165915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,21 @@ ActiveRecord::Schema.define(version: 20220725041938) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.integer "invoice_amount", null: false
+    t.date "due_date", null: false
+    t.bigint "enrollment_id", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enrollment_id"], name: "index_invoices_on_enrollment_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name", limit: 200, null: false
     t.string "cpf", limit: 11, null: false
     t.date "birth_date"
-    t.integer "tel"
+    t.bigint "tel"
     t.string "genere", limit: 1, null: false
     t.string "payment_method", limit: 6, null: false
     t.datetime "created_at", null: false
@@ -61,4 +71,5 @@ ActiveRecord::Schema.define(version: 20220725041938) do
 
   add_foreign_key "enrollments", "institutions"
   add_foreign_key "enrollments", "students"
+  add_foreign_key "invoices", "enrollments"
 end

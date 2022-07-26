@@ -16,11 +16,20 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments
   def create
     @enrollment = Enrollment.new(enrollment_params)
-
     if @enrollment.save
       render json: @enrollment, status: :created, location: @enrollment
     else
       render json: @enrollment.errors, status: :unprocessable_entity
+    end
+    today = Date.new(2018, 8, 15)
+    due_date = Date.new(2018, 8, @enrollment.invoice_due_date)
+    invoice_amount = @enrollment.total_value/@enrollment.number_invoices
+    (1..@enrollment.number_invoices).step(1) do |n|
+      if due_date >= today.day
+        @enrollment.invoice.create!(invoice_amount: invoice_amount, due_date: due_date + n.months, enrollment_id: @enrollment.id, status: 'Aberta')
+      else
+        @enrollment.invoice.create!(invoice_amount: invoice_amount, due_date: due_date + (n-1).months, enrollment_id: @enrollment.id, status: 'Aberta')
+      end
     end
   end
 
@@ -46,6 +55,6 @@ class EnrollmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def enrollment_params
-      params.require(:enrollment).permit(:total_value, :number_invoices, :invoice_due_date, :institution_id, :student_id)
+      params.permit(:total_value, :number_invoices, :invoice_due_date, :institution_id, :student_id)
     end
 end
