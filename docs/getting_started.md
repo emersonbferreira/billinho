@@ -9,7 +9,7 @@ After cloning the project, type in the terminal:
 
 Starting containers
 ----------
-After building the project, upload the container:
+After building the project, up the container:
 
 ```docker-compose up```
 
