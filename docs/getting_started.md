@@ -37,4 +37,5 @@ Use the email and authentication_token in headers to acess app routes:
 
 Databse diagram
 ----------
-![image](https://user-images.githubusercontent.com/85513624/181642217-5d0996b4-4507-4a04-8c16-e32c172d8605.png)
+![Captura de tela de 2022-07-28 18-41-44](https://user-images.githubusercontent.com/85513624/181642556-ceeab87f-89d7-4ce8-b4ad-59535127ae3c.png)
+
