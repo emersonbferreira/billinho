@@ -44,6 +44,15 @@ A API deve ser feita com base nas entidades `Instituição, Aluno e Matrícula`.
 | ID da Instituição                | Chave Estrangeira | Não pode estar vazio |
 | ID do aluno                      | Chave Estrangeira | Não pode estar vazio |
 
+#### Faturas
+
+| Campo                            | Tipo              | Restrições           |
+|--------------------------------- |-------------------| -------------------- |
+| Valor da fatura em reais         | Decimal           | Não pode estar vazio |
+| Data de vencimento               | Inteiro           | Não pode estar vazio |
+| ID da Matricula                  | Chave Estrangeira | Não pode estar vazio |
+| Status                           | Texto | Não pode estar vazio e tem que estar dentro dos valores `Aberta`, `Atrasada ou Paga` sendo o valor default `Aberta` |
+
 Requisitos
 ----------
 Dadas as entidades descritas acima, suas tarefas são:
