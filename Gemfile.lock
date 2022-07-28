@@ -167,6 +167,7 @@ DEPENDENCIES
   rack-attack
   rack-cors
   rails (~> 5.1.6)
+  rake
   rspec
   simple_token_authentication (~> 1.0)
   spring

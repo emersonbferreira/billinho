@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220725165915) do
+ActiveRecord::Schema.define(version: 20220726211830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20220725165915) do
     t.integer "invoice_due_date", null: false
     t.bigint "institution_id", null: false
     t.bigint "student_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["institution_id"], name: "index_enrollments_on_institution_id"
     t.index ["student_id"], name: "index_enrollments_on_student_id"
   end
@@ -31,8 +29,6 @@ ActiveRecord::Schema.define(version: 20220725165915) do
     t.string "name", limit: 600, null: false
     t.string "cnpj", limit: 18, null: false
     t.string "kind", limit: 12
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -40,8 +36,6 @@ ActiveRecord::Schema.define(version: 20220725165915) do
     t.date "due_date", null: false
     t.bigint "enrollment_id", null: false
     t.string "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["enrollment_id"], name: "index_invoices_on_enrollment_id"
   end
 
@@ -52,8 +46,6 @@ ActiveRecord::Schema.define(version: 20220725165915) do
     t.bigint "tel"
     t.string "genere", limit: 1, null: false
     t.string "payment_method", limit: 6, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
