@@ -35,6 +35,9 @@ Use the email and authentication_token in headers to acess app routes:
 ```http://localhost:3000/institutions```
 ```http://localhost:3000/invoices```
 
+![Captura de tela de 2022-07-29 10-31-22](https://user-images.githubusercontent.com/85513624/181771089-e4eeaa90-4de2-4573-998a-8bc3b498d329.png)
+
+
 Databse diagram
 ----------
 ![Captura de tela de 2022-07-28 18-41-44](https://user-images.githubusercontent.com/85513624/181642556-ceeab87f-89d7-4ce8-b4ad-59535127ae3c.png)
