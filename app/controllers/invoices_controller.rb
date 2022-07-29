@@ -15,10 +15,7 @@ class InvoicesController < ApplicationController
   # POST /invoices
   def create
     @invoice = Invoice.new(invoice_params)
-    if params[:status] == nil or params[:status] == 'nil' or params[:status] == ''
-      @invoice.status = 'Aberta'
-    end
-    print(@invoice.status)
+    params[:status] = invoice_status(params[:status])
     if @invoice.save
       render json: @invoice, status: :created, location: @invoice
     else
@@ -54,5 +51,11 @@ class InvoicesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def invoice_params
       params.permit(:invoice_amount, :due_date, :enrollment_id, :status)
+    end
+    
+    def invoice_status(status = 'Aberta')
+      unless ['Aberta', 'Atrasada ou Paga'].include? status
+        status = 'Aberta'
+      end
     end
 end
