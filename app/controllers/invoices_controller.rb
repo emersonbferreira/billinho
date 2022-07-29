@@ -53,6 +53,7 @@ class InvoicesController < ApplicationController
       params.permit(:invoice_amount, :due_date, :enrollment_id, :status)
     end
     
+    #Handles or sets a value for the invoice status
     def invoice_status(status = 'Aberta')
       unless ['Aberta', 'Atrasada ou Paga'].include? status
         status = 'Aberta'
