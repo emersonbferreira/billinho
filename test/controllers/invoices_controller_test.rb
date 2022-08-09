@@ -5,30 +5,32 @@ class InvoicesControllerTest < ActionDispatch::IntegrationTest
     @invoice = invoices(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get invoices_url, as: :json
     assert_response :success
   end
 
-  test "should create invoice" do
+  test 'should create invoice' do
     assert_difference('Invoice.count') do
-      post invoices_url, params: { invoice: { due_date: @invoice.due_date, enrollment_id: @invoice.enrollment_id, invoice_amount: @invoice.invoice_amount, status: @invoice.status } }, as: :json
+      post invoices_url,
+           params: { invoice: { due_date: @invoice.due_date, enrollment_id: @invoice.enrollment_id, invoice_amount: @invoice.invoice_amount, status: @invoice.status } }, as: :json
     end
 
     assert_response 201
   end
 
-  test "should show invoice" do
+  test 'should show invoice' do
     get invoice_url(@invoice), as: :json
     assert_response :success
   end
 
-  test "should update invoice" do
-    patch invoice_url(@invoice), params: { invoice: { due_date: @invoice.due_date, enrollment_id: @invoice.enrollment_id, invoice_amount: @invoice.invoice_amount, status: @invoice.status } }, as: :json
+  test 'should update invoice' do
+    patch invoice_url(@invoice),
+          params: { invoice: { due_date: @invoice.due_date, enrollment_id: @invoice.enrollment_id, invoice_amount: @invoice.invoice_amount, status: @invoice.status } }, as: :json
     assert_response 200
   end
 
-  test "should destroy invoice" do
+  test 'should destroy invoice' do
     assert_difference('Invoice.count', -1) do
       delete invoice_url(@invoice), as: :json
     end

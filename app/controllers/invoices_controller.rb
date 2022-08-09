@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :update, :destroy]
+  before_action :set_invoice, only: %i[show update destroy]
   # GET /invoices
   def index
     @invoices = Invoice.all
@@ -38,25 +38,24 @@ class InvoicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_invoice
-      @invoice = Invoice.find(params[:id])
-    end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_enrollment
-      @enrollment = Enrollment.find(params[:enrolment_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_invoice
+    @invoice = Invoice.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def invoice_params
-      params.permit(:invoice_amount, :due_date, :enrollment_id, :status)
-    end
-    
-    #Handles or sets a value for the invoice status
-    def invoice_status(status = 'Aberta')
-      unless ['Aberta', 'Atrasada ou Paga'].include? status
-        status = 'Aberta'
-      end
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_enrollment
+    @enrollment = Enrollment.find(params[:enrolment_id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def invoice_params
+    params.permit(:invoice_amount, :due_date, :enrollment_id, :status)
+  end
+
+  # Handles or sets a value for the invoice status
+  def invoice_status(status = 'Aberta')
+    status = 'Aberta' unless ['Aberta', 'Atrasada ou Paga'].include? status
+  end
 end

@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-  before_action :set_institution, only: [:show, :update, :destroy]
+  before_action :set_institution, only: %i[show update destroy]
 
   # GET /institutions
   def index
@@ -39,13 +39,14 @@ class InstitutionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_institution
-      @institution = Institution.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def institution_params
-      params.permit(:name, :cnpj, :kind)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_institution
+    @institution = Institution.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def institution_params
+    params.permit(:name, :cnpj, :kind)
+  end
 end

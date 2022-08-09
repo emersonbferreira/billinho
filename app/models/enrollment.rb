@@ -8,13 +8,16 @@ class Enrollment < ApplicationRecord
   validate :invoice_due_date, if: :due_date_valid?
 
   private
-    def total_value_valid?
-      total_value.to_f > 0
-    end
-    def number_invoices_valid?
-      number_invoices.to_i >= 1
-    end
-    def due_date_valid?
-      invoice_due_date.to_i >= 1 && invoice_due_date.to_i <= 31
-    end
+
+  def total_value_valid?
+    total_value.to_f > 0
+  end
+
+  def number_invoices_valid?
+    number_invoices.to_i >= 1
+  end
+
+  def due_date_valid?
+    invoice_due_date.to_i >= 1 && invoice_due_date.to_i <= 31
+  end
 end
