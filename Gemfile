@@ -13,7 +13,7 @@ gem 'rake'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'validators'
 
-gem 'rubocop', '~> 1.2', require: false
+gem 'rubocop', '~> 1.12.1', require: false
 
 gem 'rspec'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

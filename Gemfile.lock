@@ -189,7 +189,7 @@ DEPENDENCIES
   rails (~> 5.1.6)
   rake
   rspec
-  rubocop (~> 1.2)
+  rubocop (~> 1.12.1)
   simple_token_authentication (~> 1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
