@@ -1,0 +1,109 @@
+AllCops:
+  NewCops: enable
+  DisabledByDefault: true
+  SuggestExtensions: false
+  TargetRubyVersion: 2.4.4
+  Exclude:
+    - Rakefile
+    - bin/**/*
+    - tmp/**/*
+    - public/**/*
+    - vendor/**/*
+    - db/schema.rb
+    - db/seeds.rb
+
+
+Security/Eval:
+  Enabled: true
+
+Naming/AccessorMethodName:
+  Enabled: true
+
+Naming/AsciiIdentifiers:
+  Enabled: true
+
+Naming/BinaryOperatorParameterName:
+  Enabled: true
+
+Naming/ClassAndModuleCamelCase:
+  Enabled: true
+
+Naming/ConstantName:
+  Enabled: true
+
+Naming/FileName:
+  Enabled: true
+
+Naming/HeredocDelimiterCase:
+  Enabled: true
+  EnforcedStyle: uppercase
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: true
+  EnforcedStyleForLeadingUnderscores: disallowed
+
+Naming/MethodName:
+  Enabled: true
+  EnforcedStyle: snake_case
+
+Naming/PredicateName:
+  Enabled: false
+
+Naming/BlockParameterName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: true
+  AllowedNames:
+   - e
+   - at
+   - by
+   - db
+   - id
+   - in
+   - io
+   - ip
+   - of
+   - on
+   - os
+   - pp
+   - to
+Naming/VariableName:
+  Enabled: true
+  EnforcedStyle: snake_case
+
+Naming/VariableNumber:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: true
+  Max: 4
+
+Metrics/ClassLength:
+  Enabled: true
+  Max: 250
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 8
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: true
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
