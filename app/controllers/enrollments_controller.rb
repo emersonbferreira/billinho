@@ -21,14 +21,14 @@ class EnrollmentsController < ApplicationController
     else
       render json: @enrollment.errors, status: :unprocessable_entity
     end
-    today = Date.new(2018, 8, 15)
     due_date = Date.new(2018, 8, @enrollment.invoice_due_date)
     invoice_amount = amount_calculate(@enrollment.total_value, @enrollment.number_invoices)
     amount_remainder = remainder_calculate(invoice_amount, @enrollment.number_invoices, @enrollment.total_value)
     (1..@enrollment.number_invoices).step(1) do |n|
-      if n == @enrollment.number_invoices:
+      if n == @enrollment.number_invoices
         invoice_amount += amount_remainder
-      if due_date >= today.day
+      end
+      if due_date <= today
         @enrollment.invoice.create!(invoice_amount: invoice_amount, due_date: due_date + n.months, enrollment_id: @enrollment.id, status: 'Aberta')
       else
         @enrollment.invoice.create!(invoice_amount: invoice_amount, due_date: due_date + (n-1).months, enrollment_id: @enrollment.id, status: 'Aberta')
@@ -70,5 +70,9 @@ class EnrollmentsController < ApplicationController
     #Calculate value vestige in amount_calculate
     def remainder_calculate(invoice_amount, number_invoices, total_value)
       amount_remainder = ((invoice_amount * number_invoices) - total_value).round(2)
+    end
+    
+    def today(date = 15)
+      Date.new(2018, 8, date)
     end
 end
