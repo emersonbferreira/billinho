@@ -11,8 +11,6 @@ on:
 jobs:
   rubocop:
     runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
 
     steps:
     - name: Checkout repository
@@ -24,7 +22,7 @@ jobs:
         ruby-version: 2.4.4
 
     - name: Install Code Scanning integration
-      run: bundle add code-scanning-rubocop --version 0.3.0 --skip-install
+      run: bundle add code-scanning-rubocop --version 0.6.1 --skip-install
 
     - name: Install dependencies
       run: bundle install
