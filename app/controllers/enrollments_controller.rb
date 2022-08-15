@@ -15,24 +15,11 @@ class EnrollmentsController < ApplicationController
 
   # POST /enrollments
   def create
-    @enrollment = Enrollment.new(enrollment_params)
-    if @enrollment.save
+    @enrollment = EnrollmentsAction.create_enrollment(params)
+    if @enrollment
       render json: @enrollment, status: :created, location: @enrollment
     else
       render json: @enrollment.errors, status: :unprocessable_entity
-    end
-    due_date = Date.new(2018, 8, @enrollment.invoice_due_date)
-    invoice_amount = amount_calculate(@enrollment.total_value, @enrollment.number_invoices)
-    amount_remainder = remainder_calculate(invoice_amount, @enrollment.number_invoices, @enrollment.total_value)
-    (1..@enrollment.number_invoices).step(1) do |n|
-      if n == @enrollment.number_invoices
-        invoice_amount += amount_remainder
-      end
-      if due_date <= today
-        @enrollment.invoice.create!(invoice_amount: invoice_amount, due_date: due_date + n.months, enrollment_id: @enrollment.id, status: 'Aberta')
-      else
-        @enrollment.invoice.create!(invoice_amount: invoice_amount, due_date: due_date + (n-1).months, enrollment_id: @enrollment.id, status: 'Aberta')
-      end
     end
   end
 

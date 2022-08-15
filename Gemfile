@@ -12,7 +12,7 @@ gem 'rack-cors'
 gem 'rake'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'validators'
-
+gem 'caze'
 gem 'rubocop', '~> 1.12.1', require: false
 
 gem 'rspec'
