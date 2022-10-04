@@ -52,18 +52,3 @@ A API deve ser feita com base nas entidades `Instituição, Aluno e Matrícula`.
 | Data de vencimento               | Inteiro           | Não pode estar vazio |
 | ID da Matricula                  | Chave Estrangeira | Não pode estar vazio |
 | Status                           | Texto | Não pode estar vazio e tem que estar dentro dos valores `Aberta`, `Atrasada ou Paga` sendo o valor default `Aberta` |
-
-Requisitos
-----------
-Dadas as entidades descritas acima, suas tarefas são:
-- Criar a modelagem na aplicação e armazená-las num banco de dados;
-- Na criação dos registros os dados devem ser validados de acordo com o especificado e armazenados no banco de dados;
-- Expor uma API que permita:
-    - Receber e responder requisições no formato JSON;
-    - Listar e criar as entidades `Aluno, Instituição e Matrícula`.
-
-#### Observações
-
-- Não é necessário criar telas para a aplicação.
-- Desenvolva sua aplicação utilizando um repositório do GitHub e nos envie o link do repo ao finalizar o projeto.
-- Demonstrar, da maneira que você achar melhor que seu projeto funciona como especificado.
