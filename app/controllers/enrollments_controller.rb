@@ -47,18 +47,18 @@ class EnrollmentsController < ApplicationController
     def enrollment_params
       params.permit(:total_value, :number_invoices, :invoice_due_date, :institution_id, :student_id)
     end
-    
+
     #Calculate value of invoice
     def amount_calculate(total_value,number_invoices)
       invoice_amount = total_value.to_f / number_invoices.to_f
       invoice_amount = invoice_amount.round(2)
     end
-    
+
     #Calculate value vestige in amount_calculate
     def remainder_calculate(invoice_amount, number_invoices, total_value)
       amount_remainder = ((invoice_amount * number_invoices) - total_value).round(2)
     end
-    
+
     def today(date = 15)
       Date.new(2018, 8, date)
     end
