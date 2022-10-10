@@ -32,7 +32,6 @@ jobs:
       #Install dependencies
       - name: Install dependencies
         run:
-          gem install bundler --source http://rubygems.org
           bundle install
       # Add or replace any other lints here
       - name: Security audit dependencies
