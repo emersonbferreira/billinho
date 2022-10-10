@@ -34,7 +34,7 @@ jobs:
         run:
           gem install bundler
           bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundle install
       # Add or replace any other lints here
       - name: Security audit dependencies
         run: bin/bundler-audit --update
