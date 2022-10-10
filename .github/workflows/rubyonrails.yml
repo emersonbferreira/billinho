@@ -47,20 +47,20 @@ jobs:
     - name: Deploy to heroku
       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
-#       docker_heroku_process_type: web
+        docker_heroku_process_type: web
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: "billinho-api"
         heroku_email: "emerson.b.f02@outlook.com" 
-#        justlogin: true
-#        usedocker: true
-#        docker_build_args: |
-#            DATABASE_PASSWORD
-#    - name: "Login to heroku registry"
-#      run: heroku container:login
-#    - name: "Build and push to heroku registry"
-#      run: heroku container:push web --app billinho-api
-#    - name: "Releases the container"
-#      run: heroku container:release web --app billinho-api
-#      env:
-#        DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+        justlogin: true
+        usedocker: true
+        docker_build_args: |
+            DATABASE_PASSWORD
+    - name: "Login to heroku registry"
+      run: heroku container:login
+    - name: "Build and push to heroku registry"
+      run: heroku container:push web --app billinho-api
+    - name: "Releases the container"
+      run: heroku container:release web --app billinho-api
+      env:
+        DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
 
