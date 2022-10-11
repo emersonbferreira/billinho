@@ -45,13 +45,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Deploy to heroku
-      uses: jctaveras/heroku-deploy@v1.0.0
+      uses: jctaveras/heroku-deploy@v2.1.17
       with:
         docker_heroku_process_type: web
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: "billinho-api"
         heroku_email: "emerson.b.f02@outlook.com" 
-        dockerfile_path: 'docker-compose.yaml' 
+        dockerfile_path: '.' 
         justlogin: true
     - name: "Login to heroku registry"
       run: heroku container:login
