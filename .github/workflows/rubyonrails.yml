@@ -52,4 +52,14 @@ jobs:
         heroku_app_name: "billinho-api"
         heroku_email: "emerson.b.f02@outlook.com" 
         dockerfile_path: 'docker-compose.yaml' 
+        justlogin: true
+    - name: "Login to heroku registry"
+      run: heroku container:login
+    - name: "Build and push to heroku registry"
+      run: heroku container:push web --app billinho-api
+    - name: "Releases the container"
+      run: heroku container:release web --app billinho-api
+    env:
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+    
 
